@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_first.view.*
+import kotlinx.android.synthetic.main.fragment_second.view.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class FirstFragment : Fragment() {
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,8 +23,11 @@ class FirstFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first, container, false)
+
+
         view.textView1.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateToSecondFragment) }
+            val action = FirstFragmentDirections.navigateToSecondFragment(22)
+            Navigation.findNavController(view).navigate(action) }
 
         return view
     }
